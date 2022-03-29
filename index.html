@@ -14,15 +14,29 @@
     <script src="js/prefixfree.min.js"></script>
     <script src="js/respond.min.js"></script> 
     <script src="js/jquery.min.js"></script>
+
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/animations.css">
+
     <script src="js/swiper/swiper.min.js"></script>
     <link rel="stylesheet" href="js/swiper/swiper.min.css">
+
+    <!-- aos 관련 코드 -->
+    <link href="js/aos/aos.css" rel="stylesheet">
+    <script src="js/aos/aos.js"></script>
+
+    <!-- waypoint -->    
+    <script src="js/jquery.waypoints.js"></script>
+
+    <!-- TweenMax -->
+    <script src="js/tweenmax/gsap.min.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
 </head>
 
 <body>
-    <!-- 모달창 열기 버튼 -->
+    <!-- 모달창 -->
     <button class="modal-bt">모달창열기</button>
     <div class="modal">
         <div class="modal-wrap">
@@ -32,12 +46,21 @@
             <button class="modal-close">CLOSE</button>
         </div>
     </div>
+    <div class="control">
+        <ul class="control-menu">
+            <li><a href="#" class="control-active">HOME</a></li>
+            <li><a href="#">생명보험협회</a></li>
+            <li><a href="#">소비자</a></li>
+            <li><a href="#">모집종사자</a></li>
+            <li><a href="#">회원사</a></li>
+        </ul>
+    </div>
     <div class="wrap">
         <!-- 상단 -->
         <header class="header">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="images/t_logo.jpg" alt="로고">
+                    <img src="images/t_logo.jpg" alt="생명보험협회">
                 </a>
                 <nav class="nav">
                     <ul class="gnb clearfix">
@@ -224,9 +247,9 @@
             <!-- 메인 비주얼 -->
             <section class="visual">
                 <div class="container">
-                    <p class="visual-signature mb-10">"New Value Creation"</p>
-                    <h2 class="visual-title mb-50">생명보험 산업의 새로운 가치 창출</h2>
-                    <div class="visual-wrap">
+                    <!-- <p class="visual-signature mb-10">"New Value Creation"</p> -->
+                    <h2 class="visual-title mb-50" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">생명보험 산업의 새로운 가치 창출</h2>
+                    <div class="visual-wrap" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400">
                         <div class="visual-box mr-20">
                             <div class="visual-box-cont box-h-50 mb-20">
                                 <a href="#" class="visual-link pd-all-25">
@@ -349,7 +372,7 @@
             <section class="news">
                 <div class="container">
                     <h2 class="section-title">생명보험협회</h2>
-                    <div class="news-top mb-20 clearfix">
+                    <div class="news-top mb-20 clearfix" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                         <div class="news-wrap mr-20">
                             <a href="#" class="news-more">MORE</a>
                             <div class="news-menu clearfix">
@@ -400,7 +423,7 @@
                         </div>
                         <div class="news-slide">
                             <!-- news 슬라이드 -->
-                            <div class="swiper-continer sw-news">
+                            <div class="swiper-container sw-news">
                                 <!-- Swiper Controller -->
                                 <div class="sw-news-control">
                                     <button class="sw-news-bt">재생</button>
@@ -416,7 +439,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="news-bottom clearfix">
+                    <div class="news-bottom clearfix" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                         <div class="notice-wrap mr-20">
                             <a href="#" class="news-more">MORE</a>
                             <h3 class="notice-wrap-title">공지사항</h3>
@@ -451,7 +474,7 @@
             <section class="customer">
                 <div class="container">
                     <div class="customer-top clearfix">
-                        <div class="customer-info">
+                        <div class="customer-info" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
                             <h2 class="section-title">소비자</h2>
                             <ul class="customer-list">
                                 <li>
@@ -482,48 +505,36 @@
                         </div>
                     </div>
                     <div class="customer-bottom clearfix">
-                        <div class="customer-box-cont box-h-50 mb-20">
+                        <div class="effect-op customer-box-cont box-h-50 mb-20" data-delay="200">
                             <a href="#" class="customer-link pd-all-25">
                                 <h3>소비자포털</h3>
-                                <p>
-                                    생명보험이 어려운 보험소비자를 위한 <br>
-                                    종합 정보 포털
-                                </p>
+                                <p>생명보험이 어려운 보험소비자를 위한<br>종합 정보 포털</p>
                                 <button class="link-bt">바로가기 →</button>
                                 <img src="images/icon_s0301.png" alt="소비자포털">
                             </a>
                         </div>
-                        <div class="customer-box-cont box-h-50 mb-20">
+                        <div class="effect-op customer-box-cont box-h-50 mb-20" data-delay="300">
                             <a href="#" class="customer-link pd-all-25">
                                 <h3>내보험 찾아줌</h3>
-                                <p>
-                                    나의 숨은보험금 한번에 <br>
-                                    확인할 수 없을까?
-                                </p>
+                                <p>나의 숨은보험금 한번에<br>확인할 수 없을까?</p>
                                 <button class="link-bt">바로가기 →</button>
-                                <img src="images/icon_s0302.png" alt="내보험찾아줌">
+                                <img src="images/icon_s0302.png" alt="내보호험 찾아줌">
                             </a>
                         </div>
-                        <div class="customer-box-cont box-h-50 mb-20">
+                        <div class="effect-op customer-box-cont box-h-50 mb-20" data-delay="400">
                             <a href="#" class="customer-link pd-all-25">
                                 <h3>공시실</h3>
-                                <p>
-                                    합리적 보험상품선택을 위한 <br>
-                                    필수 코스
-                                </p>
+                                <p>합리적 보험상품선택을 위한<br>필수코스</p>
                                 <button class="link-bt">바로가기 →</button>
                                 <img src="images/icon_s0303.png" alt="공시실">
                             </a>
                         </div>
-                        <div class="customer-box-cont box-h-50 mb-20">
+                        <div class="effect-op customer-box-cont box-h-50 mb-20" data-delay="500">
                             <a href="#" class="customer-link pd-all-25">
                                 <h3>보험 다모아</h3>
-                                <p>
-                                    보험상품, 보험료 한눈에 비교하세요.<br>
-                                    온라인 보험슈퍼마켓
-                                </p>
+                                <p>보험상품,보험료 한눈에 비교하세요.<br>온라인 보험슈퍼마켓</p>
                                 <button class="link-bt">바로가기 →</button>
-                                <img src="images/icon_s0304.png" alt="보험다모아">
+                                <img src="images/icon_s0304.png" alt="보험 다모아">
                             </a>
                         </div>
                     </div>
@@ -534,7 +545,7 @@
                 <div class="container">
                     <h2 class="section-title">모집종사자</h2>
                     <div class="worker-list clearfix">
-                        <a href="#" class="worker-list-box">
+                        <a href="#" class="worker-list-box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
                             <h3>모집종사자 <br> 관련안내 및 조회</h3>
                             <p>
                                 설계사 등록조회, 말소신청 <br> e클린보험 서비스, 보험모집종사자 등록증 출력
@@ -544,7 +555,7 @@
                                 <img src="images/recruit_obj0102.png" alt="일러스트" class="ani-1-2">
                             </div>
                         </a>
-                        <a href="#" class="worker-list-box">
+                        <a href="#" class="worker-list-box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
                             <h3>보험대리점 관리자</h3>
                             <p>
                                 보험대리점 검사관련 안내 및 <br> 참고자료
@@ -557,7 +568,7 @@
                                 <img src="images/recruit_obj0405.png" alt="일러스트" class="ani-2-5">
                             </div>
                         </a>
-                        <a href="#" class="worker-list-box">
+                        <a href="#" class="worker-list-box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
                             <h3>자격시험센터</h3>
                             <p>
                                 설계사, 변액보험, 언더라이터, 종합자산관리사
@@ -568,7 +579,7 @@
                                 <img src="images/recruit_obj0203.png" alt="일러스트" class="ani-3-3">
                             </div>
                         </a>
-                        <a href="#" class="worker-list-box">
+                        <a href="#" class="worker-list-box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
                             <h3>우수인증설계사</h3>
                             <p>
                                 전문성과 윤리성을 충족한 <br> 우수설계사
@@ -590,41 +601,29 @@
                 <div class="container">
                     <h2 class="section-title">회원사</h2>
                     <div class="partner-list clearfix">
-                        <a href="#" class="partner-link">
-                            <h3 class="partner-2line">생명보험상품 <br> 광고심의</h3>
-                            <p>
-                                올바른 보험상품 광고문화 <br> 정착의 첫걸음
-                            </p>
+                        <a href="#" class="effect-op partner-link" data-delay="100">
+                            <h3 class="partner-2y">생명보험상품<br>광고심의</h3>
+                            <p>올바른 보험상품 광고문화<br>정착의 첫걸음</p>
                         </a>
-                        <a href="#" class="partner-link">
-                            <h3>신상품심의원회</h3>
-                            <p>
-                                신상품 개발이익보호를 위한 <br> 배타적사용권 부여
-                            </p>
+                        <a href="#" class="effect-op partner-link" data-delay="200">
+                            <h3>신상품심의위원회</h3>
+                            <p>신상품 개발이익보호를 위한<br>배타적사용권 부여</p>
                         </a>
-                        <a href="#" class="partner-link">
-                            <h3 class="partner-2line">생명보험협회 <br> 자율규제 운영</h3>
-                            <p>
-                                협회가 제정, 운영하는 <br> 각종규정 안내
-                            </p>
+                        <a href="#" class="effect-op partner-link" data-delay="300">
+                            <h3 class="partner-2y">생명보험협회<br>자율규제 운영</h3>
+                            <p>협회가 제정, 운영하는<br>각종규정 안내</p>
                         </a>
-                        <a href="#" class="partner-link">
+                        <a href="#" class="effect-op partner-link" data-delay="400">
                             <h3>IFRS 17</h3>
-                            <p>
-                                회원사IFRS17 <br> 정보공유 포털
-                            </p>
+                            <p>회원사IFRS17<br>정보공유 포털</p>
                         </a>
-                        <a href="#" class="partner-link">
-                            <h3 >홍보 신문고</h3>
-                            <p>
-                                언론 보도 관련 제보
-                            </p>
+                        <a href="#" class="effect-op partner-link" data-delay="500">
+                            <h3>홍보 신문고</h3>
+                            <p>언론 보도 관련 제보</p>
                         </a>
-                        <a href="#" class="partner-link">
+                        <a href="#" class="effect-op partner-link" data-delay="600">
                             <h3>옴부즈만</h3>
-                            <p>
-                                불합리한 금융규제 등에 <br> 대한 개선건의
-                            </p>
+                            <p>불합리한 금융규제 등에<br>대한 개선건의</p>
                         </a>
                     </div>
                 </div>

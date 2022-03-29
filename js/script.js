@@ -1,5 +1,10 @@
 window.onload = function(){
 
+       //  aos 관련
+        AOS.init({  
+        // once: true              
+    });
+
     // 모달창
     let modal_close = $('.modal-close');
     let modal = $('.modal');
@@ -11,6 +16,51 @@ window.onload = function(){
     let modal_bt = $('.modal-bt');
     modal_bt.click(function(){
         modal.show();
+    });
+
+    // 스크롤시 애니메이션    
+    $(".customer-box-cont").each(function (index, el) {
+        new Waypoint({
+            element: el,
+            handler: function (direction) {
+                var element = $(this.element);
+                var delay = element.attr('data-delay');
+                setTimeout(function () {
+                    if (direction == "down") {
+                        element.addClass('slideUp');
+                        element.addClass('effect-op-active');
+                    } else {
+                        element.removeClass('slideUp');
+                        element.removeClass('effect-op-active');
+                    }
+                }, delay);
+                // this.destroy();
+            },
+            offset: '90%'
+        });
+    });
+
+
+    $(".partner-link").each(function (index, el) {
+        new Waypoint({
+            element: el,
+            handler: function (direction) {
+                var element = $(this.element);
+                var delay = element.attr('data-delay');
+                setTimeout(function () {
+
+                    if (direction == "down") {
+                        element.addClass('slideUp');
+                        element.addClass('effect-op-active');
+                    } else {
+                        element.removeClass('slideUp');
+                        element.removeClass('effect-op-active');
+                    }
+                }, delay);
+              //   this.destroy();
+            },
+            offset: '90%'
+        });
     });
 
     // 메뉴기능
@@ -161,3 +211,101 @@ window.onload = function(){
         }
     });
 };
+
+$(document).ready(function(){
+
+    // 장면을 저장합니다.
+    let section =$('.main > section');
+    // 각각의 위치를 저장한다.
+    let section_pos = [];
+    $.each(section, function(index, item){
+        // 위치값을 파악한다.
+        let temp = $(this).offset().top;
+        // 정수로 만든다.
+        temp = parseInt(temp);
+        // 각각의 값을 하나씩 저장한다.
+        section_pos.push(temp);
+    });
+
+    // footer 빠진 상태로 저장
+    let footer_pos = $('.footer').offset().top;
+    footer_pos = parseInt(footer_pos);
+    section_pos.push(footer_pos);
+
+    // 현재 보여지는 페이지 번호
+    let section_index = 0;
+    // 총 이동 가능한 페이지의 개수
+    let section_total = section_pos.length;
+
+    // 화면 이동을 할지 말지 결정 여부
+    let section_scroll = 0;
+
+    // 화면 이동 속도
+    let section_speed = 500;
+
+    // console.log(section_total);
+
+    // 윈도우 스크롤 처리
+    $(window).scroll(function(){
+
+    });
+
+    // 마우스 휠 처리
+    $(window).bind('mousewheel DOMMouseScroll', function (event){
+        let distance = event.originalEvent.wheelDelta;
+        if (distance == null) {
+            distance = event.originalEvent.detail * -1;
+        }
+        
+        // 연속으로 휠이 들어온 경우 처리
+        if(section_scroll == 1){
+            return;
+        }
+
+        section_scroll = 1;
+
+        if(distance < 0) {
+            section_index ++;
+            if(section_index >= section_total) {
+                section_index = section_total - 1;
+            }
+        }else{
+            section_index --;
+            if(section_index < 0){
+                section_index = 0;
+            }
+        }
+
+        sectionFn();
+    });
+
+    // 포커스 유지
+    let control_menu = $('.control-menu a');
+    $.each(control_menu, function(index, item) {
+            $(this).click(function(event) { 
+                event.preventDefault();
+                section_index = index;
+                sectionFn();
+            });
+        });
+
+    function sectionFn(){
+
+        let temp = section_pos[section_index];
+
+        // 모든 포커스 해제
+        control_menu.removeClass('control-active');
+        control_menu.eq(section_index).addClass('control-active');
+
+
+        $('html').animate({
+            scrollTop: temp,
+        }, section_speed, function(){
+            section_scroll = 0;
+        });
+
+    };
+
+    // 최초 한번 실행
+    sectionFn();
+});
