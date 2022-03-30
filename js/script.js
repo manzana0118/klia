@@ -232,8 +232,31 @@ $(document).ready(function(){
     footer_pos = parseInt(footer_pos);
     section_pos.push(footer_pos);
 
+    // 화면이 리사이징 될 때
+    // section_pos 배열을 업데이트 한다.
+    $(window).resize(function(){
+        // 장면을 저장합니다.
+        let section =$('.main > section');
+        // 각각의 위치를 저장한다.
+        let section_pos = [];
+        $.each(section, function(index, item){
+            // 위치값을 파악한다.
+            let temp = $(this).offset().top;
+            // 정수로 만든다.
+            temp = parseInt(temp);
+            // 각각의 값을 하나씩 저장한다.
+            section_pos.push(temp);
+        });
+
+        // footer 빠진 상태로 저장
+        let footer_pos = $('.footer').offset().top;
+        footer_pos = parseInt(footer_pos);
+        section_pos.push(footer_pos);
+    });
+
     // 현재 보여지는 페이지 번호
     let section_index = 0;
+
     // 총 이동 가능한 페이지의 개수
     let section_total = section_pos.length;
 
@@ -301,11 +324,61 @@ $(document).ready(function(){
         $('html').animate({
             scrollTop: temp,
         }, section_speed, function(){
+            // 모션이 완료된 시점
             section_scroll = 0;
+            // 클릭이 가능하도록 처리
+            bt_bool = false;
         });
 
     };
 
     // 최초 한번 실행
     sectionFn();
+
+    
+    // 위로가기 아래로가기
+    let gotop = $('.gotop');    
+    let goup = $('.goup');   
+    let godown = $('.godown');
+    // 연속 버튼 막기
+    let bt_bool = false;
+    
+    gotop.click(function(event){
+        event.preventDefault();
+        section_index = 0;
+        sectionFn();
+    });
+
+    goup.click(function(event){
+        event.preventDefault();
+
+        // 움직이고 있는 동안에는 클릭을 막는다.
+        if(bt_bool == true){
+            return;
+        }
+        bt_bool == true;
+
+        section_index--;
+        if(section_index < 0) {
+            section_index = 0;
+        }
+        sectionFn();
+    });
+
+    godown.click(function(event){
+        event.preventDefault();
+
+        // 움직이고 있는 동안에는 클릭을 막는다.
+        if(bt_bool == true){
+            return;
+        }
+        bt_bool == true;
+
+        section_index++;
+        if(section_index >= section_total - 1) {
+            section_index = section_total - 2
+        }
+        sectionFn();
+    });
+
 });

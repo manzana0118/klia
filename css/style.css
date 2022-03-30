@@ -28,6 +28,12 @@ button {
     letter-spacing: -0.64px;
 }
 
+html {
+    font-size: 10px;
+    overflow-x: hidden; 
+    overflow-y: hidden;   
+}
+
 body {
     font-family: 'Noto Sans KR', 'NanumSquare', '돋움', Dotum, '굴림', Gulim, Helvetica, 'Apple SD Gothic Neo', Tahoma, Geneva, sans-serif, verdana;
     font-size: 1.6rem;
@@ -38,19 +44,6 @@ body {
     letter-spacing: -0.64px;
 
     overflow-x: hidden;
-}
-
-html {
-    scrollbar-3dLight-Color: #efefef;
-    scrollbar-arrow-color: #dfdfdf;
-    scrollbar-base-color: #efefef;
-    scrollbar-Face-Color: #dfdfdf;
-    scrollbar-Track-Color: #efefef;
-    scrollbar-DarkShadow-Color: #efefef;
-    scrollbar-Highlight-Color: #efefef;
-    scrollbar-Shadow-Color: #efefef;
-    -ms-overflow-style: none;
-    overflow: auto;
 }
 
 /* SCROLL */
@@ -174,6 +167,13 @@ html {
     text-align: center;
 }
 
+.fa-exclamation-triangle {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .modal-close {
     position: absolute;
     left: 50%;
@@ -266,7 +266,7 @@ html {
     content: '';
     position: absolute;
     right: 15px;
-    top: 30px;
+    top: 20px;
     width: 1px;
     height: calc(35px * 4);
     background-color: #bbd9bc;
@@ -277,7 +277,7 @@ html {
     display: block;
     text-align: right;
 
-    margin-top: -5px;
+    margin-top: 5px;
 }
 
 .control-menu li a {
@@ -321,6 +321,59 @@ html {
 
 .control-active::after {
     background-color: #fff !important;
+}
+
+.control-nav {
+    position: fixed;
+    top: 330px;
+    right: 0px;
+    width: 35px;
+    z-index: 900;
+}
+
+.control-nav li {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 35px;
+
+    background-color: #dadde1;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.control-nav li a {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.goup .fa-chevron-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.godown .fa-chevron-down {
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gotop {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #d82744 !important;
 }
 
 /* 상단 */
