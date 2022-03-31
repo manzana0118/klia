@@ -136,6 +136,49 @@ slideUp
 	}	
 }
 
+
+/*
+==============================================
+slideUp2 (자체 수정본)
+==============================================
+*/
+
+
+.slideUp2{
+	animation-name: slideUp2;
+	-webkit-animation-name: slideUp2;	
+
+	animation-duration: 1s;	
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;			
+}
+
+@keyframes slideUp2 {
+	0% {
+		transform: translateY(30%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0%);
+		opacity: 1;
+	}	
+}
+
+@-webkit-keyframes slideUp2 {
+	0% {
+		-webkit-transform: translateY(30%);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+		opacity: 1;
+	}	
+}
+
 /*
 ==============================================
 slideLeft

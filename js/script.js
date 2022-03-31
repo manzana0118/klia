@@ -41,6 +41,28 @@ window.onload = function(){
     });
 
 
+    $(".news-bottom").each(function (index, el) {
+        new Waypoint({
+            element: el,
+            handler: function (direction) {
+                var element = $(this.element);
+                var delay = element.attr('data-delay');
+                setTimeout(function () {
+                    if (direction == "down") {
+                        element.addClass('slideUp2');
+                        element.addClass('effect-op-active');
+                    } else {
+                        element.removeClass('slideUp2');
+                        element.removeClass('effect-op-active');
+                    }
+                }, delay);
+                // this.destroy();
+            },
+            offset: '90%'
+        });
+    });
+
+
     $(".partner-link").each(function (index, el) {
         new Waypoint({
             element: el,
@@ -245,13 +267,19 @@ $(document).ready(function(){
             // 정수로 만든다.
             temp = parseInt(temp);
             // 각각의 값을 하나씩 저장한다.
-            section_pos.push(temp);
+            section_pos[index] = temp;
         });
 
         // footer 빠진 상태로 저장
         let footer_pos = $('.footer').offset().top;
         footer_pos = parseInt(footer_pos);
-        section_pos.push(footer_pos);
+        section_pos[section_total-1] = (footer_pos);
+
+        // section_index가 변할 필요가 없다.
+        // 휠을 돌린 것은 아니니까
+        // 위치만 잡아준다.
+        let temp = section_pos[section_index];
+        $('html').scrollTop(temp);
     });
 
     // 현재 보여지는 페이지 번호
@@ -319,7 +347,6 @@ $(document).ready(function(){
         // 모든 포커스 해제
         control_menu.removeClass('control-active');
         control_menu.eq(section_index).addClass('control-active');
-
 
         $('html').animate({
             scrollTop: temp,
