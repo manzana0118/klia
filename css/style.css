@@ -188,11 +188,25 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 100px;
+    top: 95px;
     font-family: 'Noto Sans KR';
     font-weight: 600;
     font-size: 20px;
+    line-height: 1.1;
     color: #000;
+
+    white-space: nowrap;
+    text-align: center;
+}
+
+.modal-wrap .modal-desc {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 155px;
+    font-family: 'Noto Sans KR';
+    font-size: 16px;
+    color: #666;
 
     white-space: nowrap;
     text-align: center;
