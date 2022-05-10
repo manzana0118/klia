@@ -120,8 +120,7 @@ window.onload = function () {
     });
 
     // 리사이징 할때마다 계산
-    $(window).resize(function(){ 
-        console.log('게산')       
+    $(window).resize(function(){      
         $.each(submenu_box, function (index, item) {
             let temp = $(this).outerHeight();
             temp = Math.ceil(temp);
@@ -374,9 +373,9 @@ $(document).ready(function () {
     // console.log(section_total);
 
     // 윈도우 스크롤 처리
-    $(window).scroll(function () {
+    // $(window).scroll(function () {
 
-    });
+    // });
 
     // 마우스 휠 처리
     $(window).bind('mousewheel DOMMouseScroll', function (event) {
