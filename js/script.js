@@ -161,7 +161,10 @@ window.onload = function () {
         clearTimeout(menu_timer);
         submenu_div.css('height', 0);
         submenu_div.css('border-bottom-width', 0);
+
         // 포커스 해제
+        // 다시 한번 높이값을 초기화 시켜줌
+        submenu_box.hide();
         gnb_li.removeClass('gnb-li-active');
     };
 
