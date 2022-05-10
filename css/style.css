@@ -205,7 +205,7 @@ body {
     transform: translateX(-50%);
     top: 155px;
     font-family: 'Noto Sans KR';
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
 
     white-space: nowrap;
@@ -214,16 +214,17 @@ body {
 
 .fa-exclamation-triangle {
     position: absolute;
-    top: 50px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
+    font-size: 30px;
 }
 
 .modal-close {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 10px;
+    bottom: 20px;
     display: block;
     width: 150px;
     height: 30px;
