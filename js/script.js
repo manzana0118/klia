@@ -123,7 +123,7 @@ window.onload = function () {
     $(window).resize(function(){      
         $.each(submenu_box, function (index, item) {
             let temp = $(this).outerHeight();
-            temp = Math.ceil(temp);
+            temp = Math.ceil(temp) + 10;
             submenu_height[index] = temp;
         });
     });

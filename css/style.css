@@ -2259,8 +2259,8 @@ body {
     background-color: #f6f8fa;
 }
 
-.customer-box-cont:nth-child(2n) {
-    background-color: #f6f8fa;
+.customer-box-cont:nth-child(2n):hover {
+    background-color: #108ad3;
 }
 
 .customer-link img {
