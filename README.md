@@ -2,6 +2,8 @@
 [클론코딩] 생명보험협회  
 URL : https://www.klia.or.kr/ 
 
+<img src="https://user-images.githubusercontent.com/102004400/169958488-70b5cb15-a316-43a3-88f0-82d673b28043.png" alt="생명보험협회">
+
 ## Specification
   - Title : 생명보험협회 (반응형)
   - 제작기간 : 약 10일
